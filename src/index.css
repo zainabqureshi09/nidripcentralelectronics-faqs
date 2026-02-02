@@ -1,0 +1,266 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* NI Drip Central - Premium Help Centre Design System */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+@layer base {
+  :root {
+    /* Main Page Background - Light Gray: #F7F8FA */
+    --background: 220 17% 98%;
+    
+    /* Primary Heading Text - True Black for better contrast */
+    --foreground: 0 0% 0%;
+
+    /* FAQ Cards - Card White: #FFFFFF */
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --card-elevated: 0 0% 100%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    /* Hot Pink: #FF2F92 - Primary gradient color */
+    --primary: 335 100% 59%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 335 100% 54%;
+    --primary-light: 335 100% 98%;
+    --primary-muted: 335 100% 96%;
+
+    /* Rose Pink: #FF6FAE - Secondary gradient color */
+    --secondary: 335 100% 72%;
+    --secondary-foreground: 222 47% 11%;
+
+    /* Soft Gray Hover: #F2F4F7 - Card hover state */
+    --muted: 220 20% 96%;
+    
+    /* Body Text - Slate Gray: #475569 */
+    --muted-foreground: 215 20% 37%;
+
+    /* Mint Green: #8FD3A8 and Soft Green: #6BCF9B - Accent gradient */
+    --accent: 150 43% 69%;
+    --accent-foreground: 222 47% 11%;
+    --accent-secondary: 156 52% 62%;
+
+    /* States */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Card Border: #E6E8EC */
+    --border: 220 14% 91%;
+    --border-light: 220 14% 91%;
+    --input: 220 14% 91%;
+    
+    /* Focus Ring - Pink */
+    --ring: 335 100% 59%;
+
+    /* Radius - More rounded for modern feel */
+    --radius: 0.875rem;
+    --radius-lg: 1.125rem;
+    --radius-xl: 1.5rem;
+
+    /* Card Shadow Color: rgba(0, 0, 0, 0.06) */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+    --shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -2px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 20px rgba(255, 47, 146, 0.15), 0 0 40px rgba(255, 47, 146, 0.08);
+
+    /* Sidebar - Default Category */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 20% 37%;
+    --sidebar-primary: 222 47% 11%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 14% 91%;
+    --sidebar-ring: 335 100% 59%;
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 0 0% 96%;
+
+    --card: 220 18% 8%;
+    --card-foreground: 0 0% 96%;
+    --card-elevated: 220 18% 10%;
+
+    --popover: 220 18% 8%;
+    --popover-foreground: 0 0% 96%;
+
+    --primary: 328 55% 58%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 328 55% 52%;
+    --primary-light: 328 35% 14%;
+    --primary-muted: 328 25% 20%;
+
+    --secondary: 220 15% 12%;
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 58%;
+
+    --accent: 328 25% 12%;
+    --accent-foreground: 328 50% 68%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 16%;
+    --border-light: 220 15% 14%;
+    --input: 220 15% 16%;
+    --ring: 328 55% 58%;
+
+    --sidebar-background: 220 20% 6%;
+    --sidebar-foreground: 220 10% 75%;
+    --sidebar-primary: 328 55% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 220 15% 16%;
+    --sidebar-ring: 328 55% 58%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 24;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Placeholder styling - Light Gray: #94A3B8 */
+  input::placeholder {
+    color: #94A3B8;
+    opacity: 0.7;
+  }
+
+  input::-webkit-input-placeholder {
+    color: #94A3B8;
+    opacity: 0.7;
+  }
+
+  input::-moz-placeholder {
+    color: #94A3B8;
+    opacity: 0.7;
+  }
+
+  input:-ms-input-placeholder {
+    color: #94A3B8;
+    opacity: 0.7;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-semibold;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+  
+  h1 {
+    @apply font-bold;
+    letter-spacing: -0.03em;
+  }
+}
+
+@layer components {
+  /* Luxury Card Styles */
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border-light;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-elevated-hover {
+    @apply card-elevated transition-all duration-300 ease-out;
+  }
+
+  .card-elevated-hover:hover {
+    box-shadow: var(--shadow-lg);
+    @apply border-primary/20;
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+}
+
+@layer components {
+  /* Luxury Card Styles */
+  .card-elevated {
+    @apply bg-card rounded-xl border border-border-light;
+    box-shadow: var(--shadow-md);
+  }
+
+  .card-elevated-hover {
+    @apply card-elevated transition-all duration-300 ease-out;
+  }
+
+  .card-elevated-hover:hover {
+    box-shadow: var(--shadow-lg);
+    @apply border-primary/20;
+  }
+
+  /* Accent Underline */
+  .accent-underline {
+    @apply relative inline-block;
+  }
+
+  .accent-underline::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full;
+  }
+}
+
+@layer utilities {
+  /* Custom Scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+
+  /* Text Balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+}
